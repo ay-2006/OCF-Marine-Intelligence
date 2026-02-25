@@ -97,3 +97,15 @@ body { background: var(--bg-light); color: var(--text-main); display: flex; over
   border: none;
   cursor: pointer;
 }
+
+footer {
+  background: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #00aaff;
+  text-decoration: none;
+}
