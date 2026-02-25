@@ -70,3 +70,30 @@ body { background: var(--bg-light); color: var(--text-main); display: flex; over
 .mini-chart { height: 100px; }
 .pie-wrap { height: 180px; width: 180px; }
 .pie-flex { display: flex; align-items: center; gap: 30px; }
+
+#contact {
+  padding: 40px;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
+
+#contact input, 
+#contact textarea {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+#contact button {
+  padding: 10px;
+  background: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
