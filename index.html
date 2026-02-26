@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div id="bubble-container"></div>
 
@@ -22,12 +24,12 @@
             <li><a href="#" class="nav-item" onclick="showPage('policies', this)">📜 Protocols</a></li>
             <li><a href="#" class="nav-item" onclick="showPage('settings', this)">⚙️ Settings</a></li>
         </ul>
-        
+
         <div class="fleet-command">
             <p class="label">FLEET COMMAND</p>
             <div class="member">
                 <div class="avatar-frame">
-                    <img src="Anushka Yedle" alt="Anushka Yedle"> 
+                    <img src="Anushka Yedle" alt="Anushka Yedle">
                 </div>
                 <div class="member-info">
                     <span class="reg-no">24BCE1826</span>
@@ -68,7 +70,9 @@
                     <div class="card-header">Climate Risk Level</div>
                     <div class="gauge-box">
                         <div class="gauge-value" id="risk-val">LOW</div>
-                        <div class="gauge-bar"><div class="gauge-fill" id="risk-fill"></div></div>
+                        <div class="gauge-bar">
+                            <div class="gauge-fill" id="risk-fill"></div>
+                        </div>
                     </div>
                     <p id="risk-desc" class="sub-text">Calm seas detected.</p>
                 </div>
@@ -92,7 +96,9 @@
         </section>
 
         <section id="policies" class="page-section hidden">
-            <header><h1>Conservation Protocols</h1></header>
+            <header>
+                <h1>Conservation Protocols</h1>
+            </header>
             <div class="card glass policy-container">
                 <table class="styled-table">
                     <thead>
@@ -109,7 +115,9 @@
         </section>
 
         <section id="settings" class="page-section hidden">
-            <header><h1>System Preferences</h1></header>
+            <header>
+                <h1>System Preferences</h1>
+            </header>
             <div class="settings-grid">
                 <div class="card glass setting-card">
                     <h3>Display Settings</h3>
@@ -119,26 +127,16 @@
                 <div class="card glass setting-card">
                     <h3>Data Streams</h3>
                     <div class="setting-row"><span>API Status</span> <span class="status-ok">CONNECTED</span></div>
-                    <div class="setting-row"><span>Sync Frequency</span> <select><option>5 min</option></select></div>
+                    <div class="setting-row"><span>Sync Frequency</span> <select>
+                            <option>5 min</option>
+                        </select></div>
                 </div>
             </div>
         </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
 
-        <footer>
-            <p>© 2026 OCF Marine Intelligence</p>
-            <a href="https://github.com/ay-2006/OCF-Marine-Intelligence">GitHub Repository</a>
-        </footer>
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
