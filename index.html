@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
-<body>
+<body class="light-mode">
     <div id="bubble-container"></div>
 
     <nav class="sidebar">
@@ -19,62 +17,76 @@
             <div class="logo-text">OCF <small>v2.0</small></div>
         </div>
         <ul class="nav-links">
-            <li><a href="#" class="nav-item" onclick="showPage('contact', this)">✉️ Support</a></li>
             <li><a href="#" class="nav-item active" onclick="showPage('analytics', this)">📊 Analytics</a></li>
             <li><a href="#" class="nav-item" onclick="showPage('policies', this)">📜 Protocols</a></li>
-            <li><a href="#" class="nav-item" onclick="showPage('settings', this)">⚙️ Settings</a></li>
         </ul>
 
         <div class="fleet-command">
             <p class="label">FLEET COMMAND</p>
             <div class="member">
                 <div class="avatar-frame">
-                    <img src="Anushka Yedle" alt="Anushka Yedle">
+                    <img src="https://ui-avatars.com/api/?name=Anushka+Yedle&background=008080&color=fff" alt="AY"> 
                 </div>
                 <div class="member-info">
                     <span class="reg-no">24BCE1826</span>
-                    <small>Lead Analyst</small>
+                    <small>Anushka Yedle</small>
                 </div>
             </div>
             <div class="member">
                 <div class="avatar-frame">
-                    <img src="Anushree Jain" alt="Anushree Jain">
+                    <img src="https://ui-avatars.com/api/?name=Anushree+Jain&background=0e2f44&color=fff" alt="AJ">
                 </div>
                 <div class="member-info">
                     <span class="reg-no">24BCE1829</span>
-                    <small>System Architect</small>
+                    <small>Anushree Jain</small>
                 </div>
             </div>
         </div>
     </nav>
 
     <main class="main-content">
-        <section id="analytics" class="page-section">
-            <header>
-                <div class="header-left">
-                    <span class="status-tag">LIVE TELEMETRY</span>
-                    <h1>Intelligence Dashboard</h1>
-                </div>
+        <header class="main-header">
+            <div class="header-left">
+                <span class="status-tag">LIVE TELEMETRY</span>
+                <h1>Intelligence Dashboard</h1>
                 <div id="current-date" class="date-chip"></div>
-            </header>
+            </div>
+            <div class="header-controls">
+                <div class="control-item">
+                    <small>THEME</small>
+                    <button class="btn-toggle" id="dark-mode-toggle">DARK</button>
+                </div>
+                <div class="control-item">
+                    <small>GRID</small>
+                    <button class="btn-toggle" id="grid-toggle">ON</button>
+                </div>
+            </div>
+        </header>
 
+        <section id="analytics" class="page-section">
             <div class="dashboard-grid">
                 <div class="card glass tall-card">
                     <div class="card-header">SST Time Trend</div>
-                    <div class="chart-container"><canvas id="tempChart"></canvas></div>
-                    <div class="big-num" id="sea-temp">--°C</div>
-                    <p class="sub-text">Sensor: Bay of Bengal</p>
+                    <div class="chart-container sst-chart-wrap"><canvas id="tempChart"></canvas></div>
+                    <div class="sst-footer-info">
+                        <div class="big-num" id="sea-temp">--°C</div>
+                        <div class="info-text">
+                            <strong>Sea Surface Temperature (SST)</strong>
+                            <p>Water temperature at the ocean's surface. Vital for monitoring coral health and storm intensity.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card glass">
                     <div class="card-header">Climate Risk Level</div>
-                    <div class="gauge-box">
-                        <div class="gauge-value" id="risk-val">LOW</div>
-                        <div class="gauge-bar">
-                            <div class="gauge-fill" id="risk-fill"></div>
-                        </div>
+                    <div class="gauge-wrapper">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path id="gauge-path" class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <text x="18" y="20.35" class="percentage" id="risk-val">LOW</text>
+                        </svg>
                     </div>
-                    <p id="risk-desc" class="sub-text">Calm seas detected.</p>
+                    <p id="risk-desc" class="sub-text center">Checking waves...</p>
                 </div>
 
                 <div class="card glass">
@@ -89,16 +101,16 @@
                     <div class="card-header">Species Population Distribution</div>
                     <div class="pie-flex">
                         <div class="pie-wrap"><canvas id="speciesPie"></canvas></div>
-                        <div id="species-legend" class="custom-legend"></div>
+                        <div class="conclusion-box">
+                            <strong>Analyst Conclusion:</strong>
+                            <p>Data indicates optimal migratory patterns. Fishery yields are projected to remain stable for the next 72 hours.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="policies" class="page-section hidden">
-            <header>
-                <h1>Conservation Protocols</h1>
-            </header>
             <div class="card glass policy-container">
                 <table class="styled-table">
                     <thead>
@@ -113,30 +125,8 @@
                 </table>
             </div>
         </section>
-
-        <section id="settings" class="page-section hidden">
-            <header>
-                <h1>System Preferences</h1>
-            </header>
-            <div class="settings-grid">
-                <div class="card glass setting-card">
-                    <h3>Display Settings</h3>
-                    <div class="setting-row"><span>Dark Mode</span> <button class="btn-toggle">ON</button></div>
-                    <div class="setting-row"><span>Show Gridlines</span> <button class="btn-toggle">OFF</button></div>
-                </div>
-                <div class="card glass setting-card">
-                    <h3>Data Streams</h3>
-                    <div class="setting-row"><span>API Status</span> <span class="status-ok">CONNECTED</span></div>
-                    <div class="setting-row"><span>Sync Frequency</span> <select>
-                            <option>5 min</option>
-                        </select></div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <script src="script.js"></script>
 </body>
-
 </html>
